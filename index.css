@@ -8,25 +8,34 @@ a{
 }
 body{
     background-color: #4d4a40;
+    overflow-x: hidden;
 }
 .container{
     background-color: #fff;
-    width: 90%;
+    width: 1100px;
     margin:20px auto;
     padding: 30px 0;
 }
-header{
+.container header{
     background-color: #267890;
     border: 5px solid #14414e;
-    padding-bottom: 30px;
+    border-radius: 8px;
     text-align: center;
     margin:0 -34px;
-    position: relative;
+    display: flex;
+    align-items: center;
+}
+.container header h2{
+    font-size: 42px;
+    color: #fff;
 }
 .container header img{
     height: 106px;
-    position: absolute;
-    left: 70px;
+    margin-left: 90px;
+}
+.container header .title{
+    padding-right: 203px;
+    flex: 0 0 720px;
 }
 span,
 a:link,
@@ -36,15 +45,27 @@ a:optional{
 a:hover{
     color: #fff;
 }
-article{
+.container article{
     line-height: 2;
     width: 90%;
     margin:0 auto;
     padding-top: 30px;
 }
-article h3 ul {
+.container article p{
+    text-indent: 2em;
+}
+.container article .section h3{
+    font-size: 32px;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+}
+.container article .section .list{
+    margin-left: 20px;
+    text-indent: 1em;
+}
+.container article .section h3 .pic{
     display: inline-block;
-    width: 60px;
+    width: 100px;
     height: 60px;
     white-space: nowrap;
     font-size: 0px;
@@ -52,38 +73,25 @@ article h3 ul {
     margin-left: 100px;
     overflow: hidden;
 }
-article h3 ul li{
+.container article .section h3 .pic li{
     display: inline-block;
     -webkit-animation: ad 4s infinite;
     cursor: pointer;
 }
 @keyframes ad{
     0%,25%{margin-left: 0px;}
-    32%,57%{margin-left: -60px;}
-    64%,89%{margin-left: -120px;}
-    96%,100%{margin-left: -180px;}
-    
+    32%,57%{margin-left: -100px;}
+    64%,89%{margin-left: -200px;}
+    96%,100%{margin-left: -300px;}
 }
-article h3 ul li img{
-    width: 60px;
+.container article .section h3 .pic li img{
+    width: 100px;
     height: 60px;
 }
-article h3 ul li:hover{
+.container article .section h3 .pic li:hover{
     -webkit-animation-play-state: paused;
 }
-p{
-    text-indent: 2em;
-}
-h2{
-    font-size: 42px;
-    color: #fff;
-}
-h3{
-    font-size: 32px;
-    border-top: 1px dashed #ccc;
-    border-bottom: 1px dashed #ccc;
-}
-footer div{
+.container footer div{
     height: 1em;
     width: 100px;
     position: relative;
@@ -99,4 +107,26 @@ footer div{
     color: #000;
     display: none;
     line-height: 1em;
+}
+@media all and (max-width:850px){
+    .container{
+        width: 90%;
+    }
+    .container header{
+        flex-direction: column;
+        margin: 0 -5%;
+    }
+    .container header .title{
+        padding-right: 0;
+        flex: 0 0 80%;
+    }
+    .container header h2{
+        font-size: 36px;
+    }
+    .container article .section h3{
+        font-size: 30px;
+    }
+    .container header img{
+        margin-left: 0;
+    }
 }
