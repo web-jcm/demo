@@ -6,17 +6,24 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>前端学习</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="test2.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
 </head>
 
 <body>
+    <div class="aside">
+        <i class="fa fa-play-circle"></i>
+        <i class="fa fa-chevron-circle-right"></i>
+        <i class="fa fa-volume-off"></i>
+        <a class="fa fa-angle-double-up" href="#"></a>
+    </div>
     <div class="container">
         <header>
             <img src="logo.png" usemap="#logo">
             <map name="logo"><area shape="rect" coords="42,75,102,100" href="https://www.w3school.com.cn/"></map>
             <div class="title">
                 <h2>前端学习</h2>
-                <span>原文地址：</span> <a href="https://www.w3school.com.cn/">w3school</a>
+                <span>引用地址：</span> <a href="https://www.w3school.com.cn/">w3school</a>
             </div>
         </header>
         <article>
@@ -58,11 +65,45 @@
             </div>
         </article>
         <footer>
-            <div>
-                联系我们<a href="tel:999">999</a>
+            <audio src="1.mp3" controls></audio>
+            <div class="connect">
+                <a href="#">联系我们</a>
             </div>
         </footer>
     </div>
+    <script>
+        var audio = document.getElementsByTagName('audio')[0],
+            play = document.getElementsByClassName('fa-play-circle')[0],
+            next = document.getElementsByClassName('fa-chevron-circle-right')[0],
+            mute = document.getElementsByClassName('fa-volume-off')[0],
+            musicList = [1, 2, 3],
+            i = 0,
+            nextp = function () {
+                if (i != musicList.length - 1) {
+                    i++;
+                } else {
+                    i = 0;
+                }
+                audio.src = musicList[i] + ".mp3";
+                audio.play();
+            };
+        play.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+        next.addEventListener('click', nextp);
+        audio.addEventListener('ended', nextp);
+        mute.addEventListener('click', function () {
+            if (audio.muted) {
+                audio.muted = false;
+            } else {
+                audio.muted = true;
+            }
+        });
+    </script>
 </body>
 
 </html>
